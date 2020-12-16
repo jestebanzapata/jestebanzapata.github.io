@@ -24,7 +24,10 @@ body {
     --off-white: #faf8f7;
     --just-white: #fff; */
     --soft-blue: #F5F8FA;
+    --medium-blue: rgb(59, 130, 211);
     --soft-gray-border: rgb(201, 201, 201);
+    --medium-gray: #d8d8d8;
+    --dark-gray:  rgb(77, 77, 77);
 }
 
 .header-container {  
@@ -36,25 +39,118 @@ body {
 
 }
 
-.header-container span {
+.header-container .header-title {
     font-family: 'Nanum Pen Script', cursive;
-    color: rgb(59, 130, 211);
+    color: var(--medium-blue);
     font-size: 3rem;
     margin-left: 10px;
 }
 
+
+.header-container .header-title-short {    
+    display: none;
+}
+
 .header-container a {
     text-decoration: none;
-    margin-right: 38px;
+    margin-right: 18px;
 }
 
 
 .header-container__navbar {
-    display: inline-block;
+    display: inline-block;    
 }
 
 .header-container__navbar li{
     display: inline-block;
+    margin-right: 6px;
+}
+
+.header-container__navbar li:hover{
+    background-color: rgb(241, 241, 241);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.toggle-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 50px;
+    padding: 6px;
+    display: none;
+}
+
+.toggle-button:hover {
+    border-radius: 50px;
+    background-color: var(--medium-gray)
+}
+
+.toggle-button .bar {
+ height: 3px;
+ width: 90%;
+ background-color: var(--medium-blue);
+}
+
+#menu-toggle{    
+   display: none;
+}
+
+@media (max-width: 460px){
+
+    .header-container a{
+        color: white;
+    }
+
+    .header-container__navbar {
+        background-color:  rgba(0,0,0,.75);
+        width: 100%;
+        min-height: calc(100% - 45px);
+        position: absolute;
+        top: 45px;
+        flex-direction: column;
+        align-items: center;       
+        font-size: 2rem;
+        display: flex;   
+        opacity: 0;        
+    }
+
+    .header-container__navbar ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;               
+        overflow: hidden;
+    }
+
+    .header-container__navbar li {
+        margin-top: 10px;   
+        width: 100%;
+        text-align: center;        
+    }
+
+    .header-container__navbar li:hover {
+        background-color: var(--dark-gray);
+    }
+
+    .header-container .header-title-short {    
+        display: block;
+    }
+
+    .header-container .header-title-long {    
+        display: none;
+    }
+
+    #menu-toggle:checked + .header-container__navbar{
+        opacity: 1;
+        transition: all .5s ease-in-out;
+    }
+    
+    .toggle-button {
+        display: flex;
+    }
 }
 
 main {
