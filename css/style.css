@@ -274,5 +274,6 @@ main {
 
     .personal-data {
         gap: 1px;
+        align-items: center;
     }
 }
